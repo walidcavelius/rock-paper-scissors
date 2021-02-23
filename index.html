@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<script>
+    function computerPlay() {
+        let choices = ['rock', 'paper', 'scissors'];
+        return choices[Math.floor(Math.random() * choices.length)];
+    }
+
+    function playRound(playerSelection, computerSelection) {
+        playerSelection = playerSelection.toLowerCase();
+        let winner = '';
+        if (playerSelection == computerSelection) {
+            console.log(`Draw! Both ${playerSelection}, play again`);
+            return 'draw';
+        } else if ((playerSelection == "rock" && computerSelection == "scissors") || (playerSelection == "paper" &&
+                computerSelection == "rock") || (playerSelection == "scissors" && computerSelection == "paper")) {
+            console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+            return 'player';
+        } else {
+            console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+            return 'computer';
+        }
+    }
+
+    function game() {
+        let playerWinCount = 0;
+        let computerWinCount = 0;
+        for (let i = 0; i < 5 && playerWinCount <= 5-i+computerWinCount && computerWinCount <= 5-i+playerWinCount ; i++) {
+            let winner = playRound(prompt("Rock, paper or scissors ?"), computerPlay());
+            switch (winner) {
+                case 'player':
+                    playerWinCount++;
+                    break;
+                case 'computer':
+                    computerWinCount++;
+                    break;
+            }
+            console.log(`The score is ${playerWinCount}-${computerWinCount}`);
+        }
+
+        if (playerWinCount == computerWinCount) {
+            console.log('Draw! Do another game')
+        }
+
+        else if (playerWinCount > computerWinCount) {
+            console.log('Player wins')
+        }
+
+        else {
+            console.log('Computer wins')
+        }
+    }
+
+</script>
+
+</html>
