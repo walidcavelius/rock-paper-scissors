@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik');
+
+body {
+    background-color: #2e3440;
+    font-family: Rubik;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.title img {
+    width: 15%;
+    height: auto;
+    padding-right: 20px;
+}
+
+.title h1 {
+    background-color: #88c0d0;
+    border-radius: 25px;
+    padding: 15px;
+}
+
+.title {
+    padding: 50px;
+    color: #2e3440;
+    font-size: 35px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttons button {
+    text-decoration: none;
+    font-size: 20px;
+    color: rgb(236, 239, 244);
+    background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;
+    border: 0.0625em solid rgb(76, 86, 106);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 60px;
+}
+
+.buttons button:hover {
+    border-color: rgb(115, 151, 186);
+    color: rgb(115, 151, 186);
+    cursor: pointer;
+}
+
+.buttons button:active:not(:disabled) {
+    border-color: rgb(102, 141, 180);
+    color: rgb(102, 141, 180);
+}
+
+.buttons button:focus {
+    outline: currentcolor none medium;
+}
+
+.buttons img {
+    width: 125px;
+    height: auto;
+}

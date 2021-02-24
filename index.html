@@ -1,56 +1,28 @@
 <!DOCTYPE html>
 <html>
-<script>
-    function computerPlay() {
-        let choices = ['rock', 'paper', 'scissors'];
-        return choices[Math.floor(Math.random() * choices.length)];
-    }
 
-    function playRound(playerSelection, computerSelection) {
-        playerSelection = playerSelection.toLowerCase();
-        let winner = '';
-        if (playerSelection == computerSelection) {
-            console.log(`Draw! Both ${playerSelection}, play again`);
-            return 'draw';
-        } else if ((playerSelection == "rock" && computerSelection == "scissors") || (playerSelection == "paper" &&
-                computerSelection == "rock") || (playerSelection == "scissors" && computerSelection == "paper")) {
-            console.log(`You win! ${playerSelection} beats ${computerSelection}`);
-            return 'player';
-        } else {
-            console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
-            return 'computer';
-        }
-    }
+<head>
+    <meta charset="utf-8" />
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
 
-    function game() {
-        let playerWinCount = 0;
-        let computerWinCount = 0;
-        for (let i = 0; i < 5 && playerWinCount <= 5-i+computerWinCount && computerWinCount <= 5-i+playerWinCount ; i++) {
-            let winner = playRound(prompt("Rock, paper or scissors ?"), computerPlay());
-            switch (winner) {
-                case 'player':
-                    playerWinCount++;
-                    break;
-                case 'computer':
-                    computerWinCount++;
-                    break;
-            }
-            console.log(`The score is ${playerWinCount}-${computerWinCount}`);
-        }
+<body>
+    <div class='container'>
+        <div class='title'>
+            <img src="logo.png" width="30%" height="30%">
+            <h1>Rock Paper Scissors</h1>
+        </div>
+        <div class='game'>
 
-        if (playerWinCount == computerWinCount) {
-            console.log('Draw! Do another game')
-        }
-
-        else if (playerWinCount > computerWinCount) {
-            console.log('Player wins')
-        }
-
-        else {
-            console.log('Computer wins')
-        }
-    }
-
-</script>
+        </div>
+        <div class='buttons'>
+            <button type="button" id='rock'><img src="rock.png"></button>
+            <button type="button" id='paper'><img src="paper.png"></button>
+            <button type="button" id='scissors'><img src="scissors.png"></button>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
 
 </html>
