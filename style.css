@@ -27,7 +27,7 @@ body {
 }
 
 .title {
-    padding: 50px;
+    padding: 40px 40px 20px 40px;
     color: #2e3440;
     font-size: 35px;
     display: flex;
@@ -71,4 +71,38 @@ body {
 .buttons img {
     width: 125px;
     height: auto;
+}
+
+.game {
+    display:flex;
+    justify-content: center;
+}
+
+.game img {
+    width: 35%;
+    height: auto;
+}
+
+.computer, .player {
+    margin-bottom: 70px;
+}
+
+#playerImage, #computerImage, .playerScore, .computerScore {
+    font-size: 30px;
+    color:#d8dee9;
+    display: flex;
+    justify-content: center;
+}
+
+.currentRound p {
+    color: #d8dee9;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    text-transform: capitalize;
+    margin: 0px 0px;
+}
+
+.currentRound #score {
+    padding-top: 20px;
 }

@@ -1,49 +1,87 @@
-function computerPlay() {
-    let choices = ['rock', 'paper', 'scissors'];
-    return choices[Math.floor(Math.random() * choices.length)];
-}
+const playerImage = document.querySelector('#playerImage')
+const computerImage = document.querySelector('#computerImage')
+const rockImage = document.createElement('img')
+const paperImage = document.createElement('img')
+const scissorsImage = document.createElement('img')
+rockImage.src = 'rock.png'
+paperImage.src = 'paper.png'
+scissorsImage.src = 'scissors.png'
 
-function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
-    let winner = '';
-    if (playerSelection == computerSelection) {
-        console.log(`Draw! Both ${playerSelection}, play again`);
-    } else if ((playerSelection == "rock" && computerSelection == "scissors") || (playerSelection == "paper" &&
-            computerSelection == "rock") || (playerSelection == "scissors" && computerSelection == "paper")) {
-        console.log(`You win! ${playerSelection} beats ${computerSelection}`);
-    } else {
-        console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
-    }
-}
-
-function game() {
-    let playerWinCount = 0;
-    let computerWinCount = 0;
-    for (let i = 0; i < 5 && playerWinCount <= 5 - i + computerWinCount && computerWinCount <= 5 - i +
-        playerWinCount; i++) {
-        let winner = playRound(prompt("Rock, paper or scissors ?"), computerPlay());
-        switch (winner) {
-            case 'player':
-                playerWinCount++;
-                break;
-            case 'computer':
-                computerWinCount++;
-                break;
-        }
-        console.log(`The score is ${playerWinCount}-${computerWinCount}`);
-    }
-
-    if (playerWinCount == computerWinCount) {
-        console.log('Draw! Do another game')
-    } else if (playerWinCount > computerWinCount) {
-        console.log('Player wins')
-    } else {
-        console.log('Computer wins')
-    }
-}
+let playerScore = 0
+let computerScore = 0
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
-rock.addEventListener('click', function () {playRound('rock', computerPlay())});
-paper.addEventListener('click', function () {playRound('paper', computerPlay())});
-scissors.addEventListener('click', function () {playRound('scissors', computerPlay())});
+const currentRound = document.querySelector('#currentRound')
+const score = document.querySelector('#score')
+
+function gameOver() {
+    return playerScore === 5 || computerScore === 5;
+}
+
+function computerPlay() {
+    let choices = ['rock', 'paper', 'scissors'];
+    choice = choices[Math.floor(Math.random() * choices.length)];
+    switch (choice) {
+        case 'rock':
+            computerImage.innerHTML = '';
+            computerImage.appendChild(rockImage.cloneNode());
+            break;
+        case 'paper':
+            computerImage.innerHTML = '';
+            computerImage.appendChild(paperImage.cloneNode());
+            break;
+        case 'scissors':
+            computerImage.innerHTML = '';
+            computerImage.appendChild(scissorsImage.cloneNode());
+            break;
+    }
+    return choice
+}
+
+function playRound(playerSelection, computerSelection) {
+    if (!gameOver()) {
+        playerSelection = playerSelection.toLowerCase();
+        if (playerSelection == computerSelection) {
+            currentRound.textContent = `Draw! Both ${playerSelection}, play again`;
+        } else if ((playerSelection == "rock" && computerSelection == "scissors") || (playerSelection == "paper" &&
+                computerSelection == "rock") || (playerSelection == "scissors" && computerSelection == "paper")) {
+            currentRound.textContent = `You win! ${playerSelection} beats ${computerSelection}`;
+            playerScore++;
+        } else {
+            currentRound.textContent = `You lose! ${computerSelection} beats ${playerSelection}`;
+            computerScore++;
+        }
+        score.textContent = updateScore()
+        if (playerScore === 5) {
+            currentRound.textContent = 'You won the game! Congratulations!'
+        }
+        else if (computerScore ===5) {
+            currentRound.textContent = 'You lost to a computer! Try again'
+        }
+    }
+    else {
+        alert('Game is over. Reload to play again')
+    }
+}
+
+
+function updateScore() {
+    return `Score is ${playerScore}-${computerScore}`
+}
+
+rock.addEventListener('click', function () {
+    playRound('rock', computerPlay());
+    playerImage.innerHTML ='';
+    playerImage.appendChild(rockImage);
+});
+paper.addEventListener('click', function () {
+    playRound('paper', computerPlay())
+    playerImage.innerHTML ='';
+    playerImage.appendChild(paperImage);
+});
+scissors.addEventListener('click', function () {
+    playRound('scissors', computerPlay())
+    playerImage.innerHTML ='';
+    playerImage.appendChild(scissorsImage);
+});
