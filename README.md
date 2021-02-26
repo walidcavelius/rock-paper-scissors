@@ -1,2 +1,8 @@
 # rock-paper-scissors
-Rock paper scissors game made with javascript (only playing in the console for now)
+Rock paper scissors game made with javascript (with UI)
+
+[Live](https://khalwalid.github.io/rock-paper-scissors/)
+
+
+
+
