@@ -11,6 +11,6 @@ Project of the TOP curriculum.
 
 ## Live demo
 
-[Live demo](https://khalwalid.github.io/rock-paper-scissors/) here
+[Live demo](https://khalwalid.github.io/rock-paper-scissors/) 👈
 
 
