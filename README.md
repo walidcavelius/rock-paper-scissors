@@ -1,8 +1,16 @@
-# rock-paper-scissors
-Rock paper scissors game made with javascript (with UI)
+# Rock Paper Scissors
 
-[Live](https://khalwalid.github.io/rock-paper-scissors/)
+Rock Paper Scissors game against a bot (picking randomly) with a UI.
+Project of the TOP curriculum.
 
+## Built with
 
+- HTML
+- CSS
+- Javascript
+
+## Live demo
+
+[Live demo](https://khalwalid.github.io/rock-paper-scissors/) here
 
 
